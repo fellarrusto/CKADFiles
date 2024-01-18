@@ -1,0 +1,12 @@
+kubectl create -f ${DEPLOYMENT_DEFINITION_YML} 
+kubectl get deployments
+
+kubectl get all
+
+kubectl create deployment ${DEPLOYMENT_NAME} --image=${POD_IMAGE} --replicas=${REPLICAS_NUMBER} # OPTIONAL --namespace=${NAMESPACE_NAME}
+
+kubectl apply -f ${DEPLOYMENT_DEFINITION_YML}
+kubectl set image ${DEPLOYMENT_NAME} ${IMAGE}
+kubectl rollout status ${DEPLOYMENT_NAME}
+kubectl rollout history ${DEPLOYMENT_NAME}
+kubectl roll

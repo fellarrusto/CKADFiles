@@ -1,0 +1,13 @@
+# Basics
+
+docker images # Show all images
+
+docker build Dockerfile -t ${AUTHOR}/${APP_NAME}
+
+# Deliver image public
+
+docker push ${AUTHOR}/${APP_NAME}
+
+# Security
+
+docker run --user=1001 ubuntu

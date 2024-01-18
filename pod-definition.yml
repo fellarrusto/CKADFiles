@@ -1,0 +1,48 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      ports:
+        - containerPort: 8080
+      readinessProbe:
+        httpGet:
+          path: ${READY_API_PATH}
+          port: 8080
+      lvelinessProbe:
+        httpGet:
+          path: /api/healthy
+          port: 8080
+      resources:
+        request:
+          memory: "${NUM}Gi"
+          cpu: ${INT} # Number of vCPU, can also be specified in millis ${INT}m
+        limits:
+          memory: "${NUM}Gi"
+          cpu: ${INT}
+
+      command: ["${ARG}", "${VALUE}"]
+
+      securityContext:
+        runAsUser: 1000
+        capabilities:
+          add: ["MAC_ADMIN"]
+  tolerations:
+  - key: "app"
+    operator: "Equal"
+    value: "blue"
+    effect: "NoShedule"
+  nodeSelector:
+    size: Large
+  affinity:
+    nodeAffinity:
+      # Roba assurda
+  serviceAccountName: ${SERVICEACCOUNT_NAME}

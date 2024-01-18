@@ -1,0 +1,11 @@
+kubectl create -f ${REPLICASET_DEFINITION_YML}
+kubectl get replicaset
+kubectl get pods
+kubectl delete replicaset %{REPLICASET_NAME}
+
+# Update the replicaset for scaling
+kubectl replace -f ${REPLICASET_DEFINITION_YML}
+
+# Edit number of replicas directly vi cli
+kubectl scale --replicas=${NEW_REPLICAS_NUMBER} -f ${REPLICASET_DEFINITION_YML}
+kubectl scale --replicas=${NEW_REPLICAS_NUMBER} replicaset ${REPLICASET_NAME}

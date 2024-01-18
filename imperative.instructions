@@ -1,0 +1,8 @@
+# Create a pod definition file
+kubectl run ${POD_NAME} --image=${POD_IMAGE} --dry-run=client -oyaml > ${POS_DEFINITION_YML}
+
+# Edit the definition file via cli
+kubectl run ${POD_NAME} -l ${LABEL_NAME}=${LABEL_VALUE} --image=${POD_IMAGE}
+
+# Create a service ${SERVICE_NAME} to expose the ${POD_NAME} application within the cluster on port ${PORT}.
+kubectl expose pod ${POD_NAME} --port=${PORT} --name ${SERVICE_NAME}

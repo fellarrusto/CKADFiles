@@ -1,0 +1,2 @@
+# Label the nodes
+kubectl label nodes ${NODE_NAME} ${LABEL_KEY}=${LABEL_VALUE}

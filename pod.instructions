@@ -1,0 +1,11 @@
+kubectl get pods
+kubectl create -f ${POS_DEFINITION_YML}
+kubectl run ${DESIRED_POD_NAME} --image=${DESIRED_POD_IMAGE} # OPTIONAL --port=${PORT} --expose --namespace=${NAMESPACE_NAME}
+kubectl describe pods ${POD_NAME}
+kubectl delete pod ${POD_NAME}
+kubectl edit pod ${POD_NAME}
+
+TO CLOSE VIM CTRL+C
+TO SAVE VIM :wq!
+
+kubectl logs -f ${POD_NAME}

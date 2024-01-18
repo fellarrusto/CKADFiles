@@ -1,0 +1,5 @@
+kubectl create namespace ${NAMESPACE_NAME}
+kubectl get namespaces
+kubectl get pods --namespace${NAMESPACE_NAME}
+kubectl run ${DESIRED_POD_NAME} --image=${DESIRED_POD_IMAGE} --namespace=${NAMESPACE_NAME}
+kubectl get pods --all-namespaces

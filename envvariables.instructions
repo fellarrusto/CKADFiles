@@ -1,0 +1,13 @@
+kubectl create configmap ${CONFIG_NAME} --from-literal=${KEY}=${VALUE}
+kubectl create configmap ${CONFIG_NAME} --from-file=${PATH_TO_FILE}
+kubectl create -f
+
+kubectl get configmaps
+kubectl descrive configmaps
+
+kubectl create secret ${CONFIG_NAME} --from-literal=${KEY}=${VALUE}
+kubectl create secret ${CONFIG_NAME} --from-file=${PATH_TO_FILE}
+kubectl create -f
+
+kubectl get secrets
+kubectl descrive secrets
